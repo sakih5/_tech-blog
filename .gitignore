@@ -13,7 +13,6 @@ yarn-error.log*
 pnpm-debug.log*
 .npm
 .yarn/
-package-lock.json
 
 # Python (legacy)
 __pycache__/
