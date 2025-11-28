@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sakih.github.io',
-  base: '/_articles',
+  base: '/_tech-blog',
   integrations: [
     starlight({
       title: '技術記事アーカイブ',
@@ -24,7 +24,7 @@ export default defineConfig({
 
       // ソーシャルリンク
       social: {
-        github: 'https://github.com/sakih/_articles',
+        github: 'https://github.com/sakih/_tech-blog',
       },
 
       // ヘッダーナビゲーション（タブ）を追加
