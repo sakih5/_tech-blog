@@ -1,0 +1,17 @@
+{
+  "name": "tech-blog",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.28.4",
+    "astro": "^4.16.17",
+    "sharp": "^0.33.5"
+  }
+}

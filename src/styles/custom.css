@@ -1,0 +1,255 @@
+/* ===========================
+   ChatGPT ブルー基調トークン
+   =========================== */
+
+:root {
+  --sl-color-accent: #0d7df2;         /* メイン青 */
+  --sl-color-accent-soft: #e8f3ff;    /* とても薄い青 */
+  --sl-color-accent-strong: #0a5fcc;  /* 強調青 */
+
+  --sl-color-bg: #f3f4f6;             /* ChatGPT風の薄グレー背景 */
+  --sl-color-surface: #ffffff;        /* カード色 */
+  --sl-color-border: #e5e7eb;
+
+  --sl-color-text-main: #111827;
+  --sl-color-text-muted: #6b7280;
+  --sl-color-text-subtle: #9ca3af;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+/* ダークモード - ChatGPT青をそのまま暗背景に合わせて調整 */
+:root[data-theme='dark'] {
+  --sl-color-accent: #3ea8ff;
+  --sl-color-accent-soft: #073c74;
+  --sl-color-accent-strong: #63b8ff;
+
+  --sl-color-bg: #020617;
+  --sl-color-surface: #0f172a;
+  --sl-color-border: #1e293b;
+
+  --sl-color-text-main: #e5e7eb;
+  --sl-color-text-muted: #9ca3af;
+  --sl-color-text-subtle: #64748b;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================
+   全体レイアウト
+   =========================== */
+
+html,
+body {
+  background-color: var(--sl-color-bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP',
+    'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--sl-color-text-main);
+}
+
+.sl-markdown-content {
+  max-width: 760px;
+  margin: 2.5rem auto;
+  padding: 2.5rem 2.75rem;
+  background-color: var(--sl-color-surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===========================
+   見出し
+   =========================== */
+
+.sl-markdown-content h1 {
+  font-size: 1.9rem !important;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  margin-top: 2.25rem;
+}
+.sl-markdown-content h3 {
+  font-size: 1.15rem !important;
+}
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+  font-size: 1rem !important;
+  color: var(--sl-color-text-muted);
+}
+
+/* ===========================
+   コード
+   =========================== */
+
+code:not(pre code) {
+  background-color: #f3f4f6;
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+
+pre {
+  border-radius: 12px;
+  border: 1px solid var(--sl-color-border);
+  background-color: #0b1020;
+  padding: 1rem 1.2rem;
+  color: #e5e7eb;
+  box-shadow: var(--shadow-sm);
+}
+
+.expressive-code .copy button {
+  border-radius: 6px;
+  transition: 0.15s ease;
+}
+
+/* ===========================
+   テーブル
+   =========================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--sl-color-border);
+  margin: 1.8rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: var(--sl-color-accent-soft);
+  color: var(--sl-color-accent-strong);
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+}
+
+table td {
+  padding: 0.9rem 1.5rem;
+}
+
+/* ===========================
+   リンク
+   =========================== */
+
+.sl-markdown-content a {
+  color: var(--sl-color-accent);
+  border-bottom: 1px solid transparent;
+  transition: 0.15s ease;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-accent-strong);
+  border-bottom-color: var(--sl-color-accent);
+}
+
+/* ===========================
+   引用
+   =========================== */
+
+blockquote {
+  border-left: 3px solid var(--sl-color-accent);
+  background-color: var(--sl-color-accent-soft);
+  border-radius: 0.75rem;
+  color: var(--sl-color-text-main);
+  padding: 1rem 1.3rem;
+}
+
+/* ===========================
+   アドモニション
+   =========================== */
+
+.starlight-aside {
+  background-color: var(--sl-color-accent-soft);
+  border: 1px solid var(--sl-color-accent);
+  border-left-width: 4px;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+}
+
+/* ===========================
+   画像
+   =========================== */
+
+.sl-markdown-content img {
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin: 1.8rem 0;
+  max-width: 100%;
+}
+
+/* ===========================
+   ヘッダー
+   =========================== */
+
+/* サイトタイトルを黒に */
+header .site-title,
+header .site-title a {
+  color: var(--sl-color-text-main) !important;
+}
+
+/* GitHubアイコンを黒に */
+header .social-icons a {
+  color: var(--sl-color-text-main) !important;
+}
+
+header .social-icons a:hover {
+  color: var(--sl-color-accent) !important;
+}
+
+/* ===========================
+   サイドバー（左）
+   =========================== */
+
+.sidebar > ul > li > a,
+.sidebar > ul > li > details > summary {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: var(--sl-color-text-main);
+}
+
+.sidebar > ul > li > a:hover {
+  background-color: var(--sl-color-accent-soft);
+  color: var(--sl-color-accent-strong);
+}
+
+.sidebar a[aria-current='page'] {
+  background-color: var(--sl-color-accent-soft);
+  color: var(--sl-color-accent-strong);
+  font-weight: 600;
+}
+
+.sidebar ul ul > li > a {
+  padding-left: 1.6rem;
+  color: var(--sl-color-text-muted);
+}
+
+.sidebar ul ul > li > a:hover {
+  background-color: var(--sl-color-accent-soft);
+  color: var(--sl-color-accent-strong);
+}
+
+/* ===========================
+   右サイドバー
+   =========================== */
+
+.right-sidebar a {
+  border-left: 2px solid transparent;
+  padding: 0.25rem 0.3rem;
+  color: var(--sl-color-text-subtle);
+}
+
+.right-sidebar a:hover {
+  border-left-color: var(--sl-color-accent);
+  color: var(--sl-color-accent-strong);
+  background-color: var(--sl-color-accent-soft);
+}
