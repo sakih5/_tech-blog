@@ -51,7 +51,11 @@ console.log('PageTitle Debug:', {
       )}
 
       {status && (
-        <span class={`status-badge status-${status}`}>
+        <span class={`status-badge ${
+          status === '作成中' ? 'status-draft' :
+          status === '初版作成完了' ? 'status-published' :
+          'status-revised'
+        }`}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
@@ -115,19 +119,19 @@ console.log('PageTitle Debug:', {
     font-size: 0.875rem;
   }
 
-  .status-作成中 {
+  .status-draft {
     background-color: rgba(234, 179, 8, 0.15);
     color: rgb(250, 204, 21);
     border: 1px solid rgba(234, 179, 8, 0.3);
   }
 
-  .status-初版作成完了 {
+  .status-published {
     background-color: rgba(34, 197, 94, 0.15);
     color: rgb(74, 222, 128);
     border: 1px solid rgba(34, 197, 94, 0.3);
   }
 
-  .status-改訂版作成完了 {
+  .status-revised {
     background-color: rgba(59, 130, 246, 0.15);
     color: rgb(96, 165, 250);
     border: 1px solid rgba(59, 130, 246, 0.3);
