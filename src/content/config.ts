@@ -7,6 +7,7 @@ export const collections = {
     schema: docsSchema({
       extend: z.object({
         publishedDate: z.date().optional(),
+        status: z.enum(['作成中', '初版作成完了', '改訂版作成完了']).optional(),
       }),
     }),
   }),
