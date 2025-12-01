@@ -239,17 +239,214 @@ header .social-icons a:hover {
 }
 
 /* ===========================
-   右サイドバー
+   右サイドバー TOC
    =========================== */
 
-.right-sidebar a {
-  border-left: 2px solid transparent;
-  padding: 0.25rem 0.3rem;
-  color: var(--sl-color-text-subtle);
+/* スムーススクロールを有効化 */
+html {
+  scroll-behavior: smooth;
 }
 
+/* 右サイドバーの基本スタイル */
+.right-sidebar {
+  position: sticky !important;
+  top: var(--sl-nav-height);
+  height: calc(100vh - var(--sl-nav-height));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sl-color-border) transparent;
+}
+
+/* スクロールバーのカスタマイズ（Webkit） */
+.right-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--sl-color-border);
+  border-radius: 3px;
+}
+
+.right-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sl-color-accent);
+}
+
+/* TOCタイトルのスタイル */
+.right-sidebar h2 {
+  color: var(--sl-color-text-main) !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--sl-color-border);
+}
+
+/* TOCリンクの基本スタイル */
+.right-sidebar a {
+  display: block;
+  border-left: 3px solid transparent;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  color: var(--sl-color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-decoration: none;
+  border-radius: 0 6px 6px 0;
+  transition: all 0.2s ease;
+}
+
+/* TOCリンクのホバー状態 */
 .right-sidebar a:hover {
+  background-color: var(--sl-color-accent-soft);
+  color: var(--sl-color-accent-strong);
+}
+
+/* 現在位置のハイライト（aria-current="true"） */
+.right-sidebar a[aria-current='true'] {
   border-left-color: var(--sl-color-accent);
   color: var(--sl-color-accent-strong);
   background-color: var(--sl-color-accent-soft);
+  font-weight: 600;
+}
+
+/* h3リンクのインデント */
+.right-sidebar ul ul a {
+  padding-left: 1.5rem;
+  font-size: 0.8125rem;
+}
+
+/* リストのスタイル */
+.right-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-sidebar li {
+  margin: 0;
+}
+
+/* 「概要」リンク（ページタイトルへのリンク）を非表示 */
+.right-sidebar a[href='#_top'] {
+  display: none;
+}
+
+/* ===========================
+   投稿日・更新日の表示
+   =========================== */
+
+/* タイトル下に表示されるので、フッターの最終更新日は非表示 */
+footer .meta p:has(time) {
+  display: none;
+}
+
+/* モバイル版TOC（上部固定） */
+@media (max-width: 71.9rem) {
+  .right-sidebar-container {
+    display: none;
+  }
+
+  /* モバイル版TOCのカスタマイズ */
+  mobile-starlight-toc nav {
+    background-color: var(--sl-color-surface);
+    border-top-color: var(--sl-color-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  mobile-starlight-toc summary {
+    border-bottom-color: var(--sl-color-border);
+  }
+
+  mobile-starlight-toc .toggle {
+    background-color: var(--sl-color-accent-soft);
+    border-color: var(--sl-color-accent);
+    color: var(--sl-color-accent-strong);
+  }
+
+  mobile-starlight-toc details[open] .toggle {
+    background-color: var(--sl-color-accent);
+    color: white;
+  }
+
+  mobile-starlight-toc .dropdown {
+    background-color: var(--sl-color-surface);
+    border-color: var(--sl-color-border);
+  }
+
+  /* モバイル版TOCリンクのスタイル */
+  mobile-starlight-toc a {
+    color: var(--sl-color-text-main) !important;
+    transition: background-color 0.15s ease;
+  }
+
+  mobile-starlight-toc a:hover {
+    background-color: var(--sl-color-accent-soft) !important;
+  }
+
+  mobile-starlight-toc a[aria-current='true'] {
+    color: var(--sl-color-accent-strong) !important;
+    background-color: var(--sl-color-accent-soft) !important;
+    font-weight: 600;
+  }
+
+  /* モバイル版TOCでも「概要」リンクを非表示 */
+  mobile-starlight-toc a[href='#_top'] {
+    display: none;
+  }
+}
+
+/* デスクトップ版TOC */
+@media (min-width: 72rem) {
+  .right-sidebar {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ダークモード対応 */
+:root[data-theme='dark'] .right-sidebar h2 {
+  color: var(--sl-color-text-main) !important;
+  border-bottom-color: var(--sl-color-border);
+}
+
+:root[data-theme='dark'] .right-sidebar a {
+  color: var(--sl-color-text-muted);
+}
+
+:root[data-theme='dark'] .right-sidebar a:hover {
+  color: var(--sl-color-accent-strong);
+  background-color: var(--sl-color-accent-soft);
+}
+
+:root[data-theme='dark'] .right-sidebar a[aria-current='true'] {
+  color: var(--sl-color-accent-strong);
+  background-color: var(--sl-color-accent-soft);
+}
+
+/* ダークモード - モバイル版TOC */
+@media (max-width: 71.9rem) {
+  :root[data-theme='dark'] mobile-starlight-toc nav {
+    background-color: var(--sl-color-surface);
+    border-top-color: var(--sl-color-border);
+  }
+
+  :root[data-theme='dark'] mobile-starlight-toc .toggle {
+    background-color: var(--sl-color-accent-soft);
+    color: var(--sl-color-accent-strong);
+  }
+
+  :root[data-theme='dark'] mobile-starlight-toc details[open] .toggle {
+    background-color: var(--sl-color-accent);
+    color: white;
+  }
+
+  :root[data-theme='dark'] mobile-starlight-toc .dropdown {
+    background-color: var(--sl-color-surface);
+    border-color: var(--sl-color-border);
+  }
 }

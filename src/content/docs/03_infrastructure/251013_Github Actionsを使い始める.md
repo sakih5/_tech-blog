@@ -1,5 +1,6 @@
 ---
 title: Github Actionsを使い始める
+publishedDate: 2025-10-13
 ---
 
 # GitHub Actions とは？

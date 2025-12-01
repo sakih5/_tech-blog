@@ -1,5 +1,6 @@
 ---
 title: LinterとFormatterを設定する
+publishedDate: 2025-10-24
 ---
 
 # LinterとFormatterを設定する

@@ -1,5 +1,6 @@
 ---
 title: FastAPIでバックエンドサーバを構築する(実装編)
+publishedDate: 2025-08-23
 ---
 
 # FastAPI 超入門メモ: Todo API を立ててみて気づいたこと

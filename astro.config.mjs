@@ -100,6 +100,11 @@ export default defineConfig({
         './src/styles/custom.css',
       ],
 
+      // カスタムコンポーネント
+      components: {
+        PageTitle: './src/components/PageTitle.astro',
+      },
+
       // 編集リンクを無効化
       editLink: {
         baseUrl: 'https://github.com/sakih/_articles/edit/main/',

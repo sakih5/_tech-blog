@@ -1,5 +1,6 @@
 ---
 title: Poetryでvenv+pipを代替する
+publishedDate: 2025-10-07
 ---
 
 # Poetry とは

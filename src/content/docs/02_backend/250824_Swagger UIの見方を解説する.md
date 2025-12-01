@@ -1,5 +1,6 @@
 ---
 title: Swagger UIの見方を解説する
+publishedDate: 2025-08-24
 ---
 
 FastAPIを使うと、自動でSwagger UIが生成される。これにより、エンドポイントの仕様確認や動作テストを直感的に行うことができる

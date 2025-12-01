@@ -1,5 +1,6 @@
 ---
 title: APIサーバのCloud Runへのデプロイ
+publishedDate: 2025-11-13
 ---
 
 #

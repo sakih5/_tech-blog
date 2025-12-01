@@ -1,5 +1,6 @@
 ---
 title: FastAPIで出てくるUvicornとは何ぞや
+publishedDate: 2025-10-31
 ---
 
 FastAPIを使うときに出てくる、Uvicornって何者？

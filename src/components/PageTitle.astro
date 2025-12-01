@@ -1,0 +1,102 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+
+const { entry, lang, lastUpdated } = Astro.props;
+const publishedDate = entry.data.publishedDate;
+const PAGE_TITLE_ID = '_top';
+
+// デバッグ用ログ
+console.log('PageTitle Debug:', {
+  title: entry.data.title,
+  publishedDate: publishedDate,
+  publishedDateType: typeof publishedDate,
+  lastUpdated: lastUpdated,
+});
+---
+
+<div class="page-title-wrapper">
+  <h1 id={PAGE_TITLE_ID}>{entry.data.title}</h1>
+
+  {(publishedDate || lastUpdated) && (
+    <div class="page-meta">
+      {publishedDate && (
+        <span class="published-date">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          投稿日: <time datetime={publishedDate instanceof Date ? publishedDate.toISOString() : publishedDate}>
+            {publishedDate instanceof Date
+              ? publishedDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+              : new Date(publishedDate).toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+            }
+          </time>
+        </span>
+      )}
+
+      {lastUpdated && (
+        <span class="last-updated">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          最終更新: <time datetime={lastUpdated.toISOString()}>
+            {lastUpdated.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+          </time>
+        </span>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .page-title-wrapper {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: var(--sl-text-h1);
+    line-height: var(--sl-line-height-headings);
+    font-weight: 600;
+    color: var(--sl-color-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--sl-color-border);
+    font-size: 0.875rem;
+    color: var(--sl-color-text-muted);
+  }
+
+  .page-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .page-meta svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  .page-meta time {
+    color: var(--sl-color-text-main);
+    font-weight: 500;
+  }
+
+  @media (max-width: 48rem) {
+    .page-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 title: pyenvでPython本体ごと隔離環境を作る
+publishedDate: 2025-09-15
 ---
 
 # pyenv で Python 本体ごと隔離環境を作る

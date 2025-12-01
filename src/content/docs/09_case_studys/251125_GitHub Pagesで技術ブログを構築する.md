@@ -1,5 +1,6 @@
 ---
 title: GitHub Pagesで技術ブログを構築する
+publishedDate: 2025-11-25
 ---
 
 # GitHub Pagesで技術ブログを構築する

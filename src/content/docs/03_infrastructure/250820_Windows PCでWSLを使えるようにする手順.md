@@ -1,5 +1,6 @@
 ---
 title: Windows PCでWSLを使えるようにする手順
+publishedDate: 2025-08-20
 ---
 
 # Windows PCでWSLを使えるようにする手順

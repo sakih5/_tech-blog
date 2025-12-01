@@ -1,5 +1,6 @@
 ---
 title: FastAPI+HTML+JS+PSQLでTodo管理アプリを作る
+publishedDate: 2025-10-07
 ---
 
 # 大まかな流れ

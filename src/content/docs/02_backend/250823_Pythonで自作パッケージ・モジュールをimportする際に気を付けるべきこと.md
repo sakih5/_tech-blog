@@ -1,5 +1,6 @@
 ---
 title: Pythonで自作パッケージ・モジュールをimportする際に気を付けるべきこと
+publishedDate: 2025-08-23
 ---
 
 「ModuleNotFoundError」になったり、何故かならなかったり、挙動が不安定だった過去を反省し、Pythonで自作パッケージ・モジュールをimportする際に気を付けることを整理してみた。

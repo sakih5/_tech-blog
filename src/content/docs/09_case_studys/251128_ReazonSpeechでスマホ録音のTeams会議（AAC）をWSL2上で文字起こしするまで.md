@@ -1,5 +1,6 @@
 ---
 title: ReazonSpeechでスマホ録音のTeams会議（AAC）をWSL2上で文字起こしするまで
+publishedDate: 2025-11-28
 ---
 
 # ReazonSpeechでスマホ録音のTeams会議（AAC）をWSL2上で文字起こしするまで

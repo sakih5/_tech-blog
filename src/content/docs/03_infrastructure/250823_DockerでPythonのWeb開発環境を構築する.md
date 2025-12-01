@@ -1,5 +1,6 @@
 ---
 title: DockerでPythonのWeb開発環境を構築する
+publishedDate: 2025-08-23
 ---
 
 ## 前提

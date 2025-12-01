@@ -1,5 +1,6 @@
 ---
 title: DockerでPython環境構築時の小技
+publishedDate: 2025-08-23
 ---
 
 ## この記事で言いたいこと

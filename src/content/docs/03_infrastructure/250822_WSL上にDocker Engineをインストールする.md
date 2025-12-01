@@ -1,5 +1,6 @@
 ---
 title: WSL上にDocker Engineをインストールする
+publishedDate: 2025-08-22
 ---
 
 # WSL上にDocker Engineをインストールする
