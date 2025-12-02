@@ -119,22 +119,32 @@ pre {
 
 table {
   width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--sl-color-border);
+  border-collapse: collapse;  /* 罫線を1本にまとめる */
   margin: 1.8rem 0;
-  border-radius: 10px;
-  overflow: hidden;
+  border: none;              /* 外枠の線をなくす */
+  border-radius: 0;          /* 角丸もなくす */
+  overflow: visible;
 }
 
-table th {
+/* ヘッダーセル */
+table thead th {
   background-color: var(--sl-color-accent-soft);
   color: var(--sl-color-accent-strong);
   font-weight: 600;
-  padding: 0.9rem 1.5rem;
 }
 
+/* セル共通 */
+table th,
 table td {
-  padding: 0.9rem 1.5rem;
+  padding: 0.9rem 1rem !important;    /* !importantで「文字が端ギリギリ」を解消 */
+  text-align: left;
+  border-bottom: 1px solid var(--sl-color-border);  /* 行ごとの下線だけにする */
+}
+
+/* 最終行だけ下線を消したい場合（好みで） */
+table tr:last-child th,
+table tr:last-child td {
+  border-bottom: none;
 }
 
 /* ===========================
@@ -157,23 +167,144 @@ table td {
    =========================== */
 
 blockquote {
-  border-left: 3px solid var(--sl-color-accent);
-  background-color: var(--sl-color-accent-soft);
-  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem 0.8rem 1.4rem;
+  border-left: 4px solid var(--sl-color-accent);
+  background: none;                   /* 背景色なし */
   color: var(--sl-color-text-main);
-  padding: 1rem 1.3rem;
+  font-size: 1.05rem;                 /* 少しだけ大きく */
+  line-height: 1.7;
+}
+
+/* 引用内の段落が詰まらないように */
+blockquote p {
+  margin: 0.5rem 0;
 }
 
 /* ===========================
-   アドモニション
+   アドモニション (:::note, :::caution, :::danger)
    =========================== */
 
+/* 基本スタイル */
 .starlight-aside {
-  background-color: var(--sl-color-accent-soft);
-  border: 1px solid var(--sl-color-accent);
-  border-left-width: 4px;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  border-left-width: 5px;
+  border-left-style: solid;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.starlight-aside__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.starlight-aside__content > :first-child {
+  margin-top: 0;
+}
+
+.starlight-aside__content > :last-child {
+  margin-bottom: 0;
+}
+
+/* ===========================
+   情報 (:::note または :::note[info])
+   青色系
+   =========================== */
+.starlight-aside--note {
+  background-color: rgba(59, 130, 246, 0.08);
+  border-left-color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-left-width: 5px;
+}
+
+.starlight-aside--note .starlight-aside__title {
+  color: #2563eb;
+}
+
+:root[data-theme='dark'] .starlight-aside--note {
+  background-color: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+:root[data-theme='dark'] .starlight-aside--note .starlight-aside__title {
+  color: #60a5fa;
+}
+
+/* ===========================
+   警告 (:::caution または :::note[warn])
+   黄色系
+   =========================== */
+.starlight-aside--caution {
+  background-color: rgba(234, 179, 8, 0.08);
+  border-left-color: #eab308;
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  border-left-width: 5px;
+}
+
+.starlight-aside--caution .starlight-aside__title {
+  color: #ca8a04;
+}
+
+:root[data-theme='dark'] .starlight-aside--caution {
+  background-color: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+:root[data-theme='dark'] .starlight-aside--caution .starlight-aside__title {
+  color: #fbbf24;
+}
+
+/* ===========================
+   より強い警告 (:::danger または :::note[alert])
+   赤色系
+   =========================== */
+.starlight-aside--danger {
+  background-color: rgba(239, 68, 68, 0.08);
+  border-left-color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-left-width: 5px;
+}
+
+.starlight-aside--danger .starlight-aside__title {
+  color: #dc2626;
+}
+
+:root[data-theme='dark'] .starlight-aside--danger {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+:root[data-theme='dark'] .starlight-aside--danger .starlight-aside__title {
+  color: #f87171;
+}
+
+/* ===========================
+   ヒント (:::tip)
+   緑色系（オプション）
+   =========================== */
+.starlight-aside--tip {
+  background-color: rgba(34, 197, 94, 0.08);
+  border-left-color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-left-width: 5px;
+}
+
+.starlight-aside--tip .starlight-aside__title {
+  color: #16a34a;
+}
+
+:root[data-theme='dark'] .starlight-aside--tip {
+  background-color: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+:root[data-theme='dark'] .starlight-aside--tip .starlight-aside__title {
+  color: #4ade80;
 }
 
 /* ===========================
